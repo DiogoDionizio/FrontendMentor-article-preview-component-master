@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Article preview component</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Manrope', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      margin: 0 auto;
+      background: hsl(210, 46%, 95%);
+      width: 1440px;
+    }
+    .list-components {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-top: 120px;
+    }
+    .component {
+      background: #fff;
+      width: 732px;
+      height: 282px;
+      display: flex;
+      border-radius: 15px;
+    }
+    .img-component {
+      background: url('images/drawers.jpg') no-repeat;
+      background-size: cover;
+      background-position: left;
+      width: 304px;
+      border-top-left-radius: 15px;
+      border-bottom-left-radius: 15px;
+    }
+    .text-component {
+      width: 428px;
+      padding-left: 40px;
+      padding-top: 15px;
+    }
+    .text-component .title-text {
+      width: 344px;
+      font-size: 20px;
+      font-weight: 800;
+      color: hsl(217, 19%, 35%);
+    }
+    .text-component .p-text {
+      width: 346px;
+      margin-bottom: 20px;
+      font-weight: lighter;
+      color: hsl(214, 17%, 51%);
+    }
+
+    .profile-component {
+      display: flex;
+    }
+    .profile-component .profile-left {
+      display: flex;
+      width: 80%;
+    }    
+    .profile-component img {
+      width: 40px;
+      border-radius: 50%;
+      margin-right: 17px;
+    }
+    .profile-component .text-profile span {
+      display: block;
+    }
+    .profile-component .title-profile {
+      font-weight: 800;
+    }
+    .profile-component .profile-left .data-profile {
+      color: hsl(212, 23%, 69%);
+    }
+
+    .profile-component .profile-right {
+      position: relative;
+    }
+    .profile-component .profile-right .icone {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: hsl(210, 46%, 95%);
+      color: hsl(214, 17%, 51%);
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 32px;
+      cursor: pointer;
+    }
+    .share {
+      position: absolute;
+      top: -70px;
+      left: -105px;
+
+      width: 248px;
+      padding: 15px 0;
+      background: #495669;
+      color: #fff;
+      border-radius: 7px;
+      box-sizing: border-box;
+      display: flex;
+      justify-content: center;
+      align-items: center; 
+    }
+    .share .text-share {
+      text-transform: uppercase;
+      margin-right: 15px;
+      color: hsl(214, 17%, 51%);
+      font-size: 13px;
+      letter-spacing: .3em;
+    }
+    .share i {
+      font-size: 20px;
+      margin-right: 15px;
+    }
+
+    /* Share click */
+	.profile-component .profile-right .icone-click {
+	  background: hsl(217, 19%, 35%);
+	}
+	.profile-component .profile-right .share-click {
+	  color: #fff;
+	}
+  </style>
+
+    <style>
+    /* Mobile */
+    @media (max-width: 375px) {
+      * {
+        margin: 0;
+        padding: 0;
+        border: 0;
+      }
+      body {
+        width: 375px;
+        padding: 0 24px
+        border: 0;
+        margin: 0;
+      }
+
+      .list-components {
+        padding-top: 30px;
+      }
+
+      .component {
+        width: 327px;
+        background: #fff;
+        display: block;
+      }
+      .img-component {
+        background: url('images/drawers.jpg') no-repeat;
+        background-size: cover;
+        background-position: left;
+        width: 100%;
+        height: 170px;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+      .text-component {
+        background: #fff;
+        width: 327px;
+        box-sizing: border-box;
+        border-bottom-right-radius: 15px;
+        border-bottom-left-radius: 15px;
+      }
+      .text-component .title-text {
+        margin-top: 22px;
+        width: 254px;
+        font-size: 17px;
+        margin-bottom: 20px;
+      }
+      .text-component .p-text {
+        width: 258px;
+        margin-bottom: 25px;
+        font-size: 13.3px;
+      }
+
+      .profile-component {
+        display: flex;
+        width: 263px;
+        padding-bottom: 10px;
+      }
+      .profile-component .profile-left {
+        display: flex;
+      }    
+      .profile-component img {
+        width: 40px;
+      }
+      .profile-component .text-profile span {
+        display: block;
+      }
+      .profile-component .title-profile {
+        font-weight: 800;
+        margin-bottom: 5px;
+      }
+      .profile-component .profile-left .data-profile {
+        color: hsl(212, 23%, 69%);
+      }
+
+      .profile-component .profile-right {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .profile-component .profile-right .icone {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: hsl(210, 46%, 95%);
+        color: hsl(214, 17%, 51%);
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 32px;
+        cursor: pointer;
+      }
+      /* Share click */
+      .profile-component .profile-right .icone-click {
+        background: hsl(214, 17%, 51%);
+      }
+      .profile-component .profile-right .share-click {
+        color: #fff;
+      }
+      .share {
+        position: absolute;
+        top: -10px;
+        left: -253px;    
+        
+        width: 327px;
+        height: 64px;
+        padding: 15px 0;
+        background: #495669;
+        color: #fff;
+        border-radius: 0;
+        border-bottom-left-radius: 7px;
+        border-bottom-right-radius: 7px;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+        align-items: center; 
+      }
+      .share .text-share {
+        text-transform: uppercase;
+        margin-right: 15px;
+        color: hsl(214, 17%, 51%);
+        font-size: 13px;
+        letter-spacing: .3em;
+      }
+      .share i {
+        font-size: 20px;
+        margin-right: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  
+
+  <div class="list-components">
+    <div class="component">
+      <div class="img-component"></div>
+      <div class="text-component">
+
+        <h3 class="title-text">Shift the overall look and feel by adding these wonderful 
+          touches to furniture in your home</h3>
+
+        <p class="p-text">Ever been in a room and felt like something was missing? Perhaps 
+        it felt slightly bare and uninviting. I’ve got some simple tips 
+        to help you make any room feel complete.</p>
+        
+        <div class="profile-component">
+          <div class="profile-left">
+            <img src="images/avatar-michelle.jpg">
+            <div class="text-profile">
+              <span class="title-profile">Michelle Appleton</span>
+              <span class="data-profile">28 Jun 2020</span>
+            </div>
+          </div>
+
+          <div class="profile-right">
+            <div class="share" style="display: none;">
+              <span class="text-share">share</span>
+              <i class="fa fa-facebook-official" aria-hidden="true"></i>
+              <i class="fa fa-twitter" aria-hidden="true"></i>
+              <i class="fa fa-pinterest" aria-hidden="true"></i>
+            </div>
+            <div id="icone" class="icone">
+              <ion-icon id="btn-share" name="arrow-redo" size="small"></ion-icon> 
+            </div>                   
+          </div>         
+                 
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    $(function(){
+
+      var aux = true;
+
+      $(document).on('click', '#btn-share', function(){
+        $('.share').toggle();
+        $('#btn-share').toggleClass('share-click', 'icone');
+        $('#icone').toggleClass('icone-click', 'icone');
+      });
+    });
+  </script>
+
+</body>
+</html>
